@@ -7,9 +7,16 @@ const Login = () => {
                 <hr className="mb-4"/>
 
                 <form>
-                    <div className="">
-                        <label htmlFor="">Name</label>
-                        <input type="text" className="w-full h-8 border" />
+                    <div className="mt-4">
+                        <label htmlFor="text-xl pb-8">Email</label>
+                        <input type="email" className="w-full h-12 border rounded pl-4" placeholder="Email"/>
+                    </div>
+                    <div className="mt-4">
+                        <label htmlFor="text-xl pb-8">Password</label>
+                        <input type="password" className="w-full h-12 border rounded pl-4" placeholder="Password"/>
+                    </div>
+                    <div className="mt-4">
+                        <button type="submit" className="w-full h-16 bg-blue-600 text-xl text-white rounded duration-500 hover:bg-blue-700">Login Up</button>
                     </div>
                 </form>
 
