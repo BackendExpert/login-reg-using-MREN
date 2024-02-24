@@ -1,5 +1,9 @@
+import { useState } from "react"
 
 const SignUp = () => {
+    const [name, SetName] = useState("")
+    const [email, SetEmail] = useState("")
+    const [password, SetPassword] = useS
   return (
     <div className="bg-blue-600 w-full h-screen">
         <div className="container mx-auto px-40 py-20">
