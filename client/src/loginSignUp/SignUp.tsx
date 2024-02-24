@@ -1,17 +1,24 @@
 import axios from "axios"
 import { useState } from "react"
+import { Navigate, useNavigate } from "react-router-dom"
 
-const SignUp = () => {
+function SignUp()  {
     const [name, SetName] = useState("")
     const [email, SetEmail] = useState("")
     const [password, SetPassword] = useState("")
+    const Navigate = useNavigate()
 
-    const handleSubmit = (e) => {
-        e.preventDefault()        
-        axios.post('http://localhost:3001/register', {name, email, password})
-        .then(res => {
-            alert("Created")
-        }).catch(err => console.log(err))
+    const handleSubmit = (event) => {
+        event.preventDefault()        
+        axios.post("http://localhost:3001/register", {name, email, password})
+        .then(res => 
+            {
+                if(res.data.Status == "Success"){
+                    Navigate('/');
+                }
+            })
+        .catch(err => console.log(err))
+
     }
 
 
@@ -26,17 +33,17 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="mt-4">
                         <label htmlFor="text-xl pb-8">Name</label>
-                        <input type="text" className="w-full h-12 border rounded pl-4" placeholder="Name"
+                        <input type="text" className="w-full h-12 border rounded pl-4" 
                         onChange={(e) => SetName(e.target.value)}/>
                     </div>
                     <div className="mt-4">
                         <label htmlFor="text-xl pb-8">Email</label>
-                        <input type="email" className="w-full h-12 border rounded pl-4" placeholder="Email" 
+                        <input type="email" className="w-full h-12 border rounded pl-4" 
                         onChange={(e) => SetEmail(e.target.value)}/>
                     </div>
                     <div className="mt-4">
                         <label htmlFor="text-xl pb-8">Password</label>
-                        <input type="password" className="w-full h-12 border rounded pl-4" placeholder="Password" 
+                        <input type="password" className="w-full h-12 border rounded pl-4" 
                         onChange={(e) => SetPassword(e.target.value)}/>
                     </div>
                     <div className="mt-4">
