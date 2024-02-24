@@ -16,6 +16,8 @@ app.use(cookieParser)
 //make connection between database
 mongoos.connect('mongodb://127.0.0.1:27017/employee')
 
+
+//register
 app.post('/register', (req, res) => {
     const {name, email, passord} = req.body;
     bcrypt.hash(password, 10)
