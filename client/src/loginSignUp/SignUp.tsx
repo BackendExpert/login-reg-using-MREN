@@ -7,12 +7,14 @@ const SignUp = () => {
     const [password, SetPassword] = useState("")
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault()        
         axios.post('http://localhost:3001/register', {name, email, password})
         .then(res => {
             alert("Created")
         }).catch(err => console.log(err))
     }
+
+
 
   return (
     <div className="bg-blue-600 w-full h-screen">
